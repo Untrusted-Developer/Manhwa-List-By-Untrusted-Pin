@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>R</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    background-color:#DD6BA7
+    }
+.header{
+    text-align:center;
+    padding:10px 0;
+    position:fixed;
+    width:100%;
+    background-color:black;
+    top:0;
+    left:0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    z-index:1000;
+    box-shadow:0px 2px 5px rgba(0,0,0,0.2)
+    }
+.contentman{
+    background-color:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0px 4px 8px rgba(0,0,0,0.2);
+    margin-top:60px;
+    margin-left:20px;
+    margin-right:20px;
+    border:5px solid black
+    }
+.contentman h4{
+    text-align:center
+    }
+.contentman p{
+    background-color:white;
+    padding:10px;
+    border-radius:5px
+    }
+.header img{
+    width:30px;
+    margin-right:10px
+    }
+.header h2{
+    margin:0;
+    color:red;
+    display:inline-block;
+    font-size:24px
+    }
+.dropdown{
+    position:relative
+    }
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background-color:#f9f9f9;
+    box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index:1;
+    border:1px solid white;
+    width:150px;
+    right:0
+    }
+.dropdown:hover .dropdown-content{
+    display:block
+    }
+.dropdown-content a{
+    color:black;
+    padding:8px 16px;
+    text-decoration:none;
+    display:block;
+    border-bottom:1px solid white
+    }
+.dropdown-content a:last-child{
+    border-bottom:none
+    }
+.dropdown-content a:hover{
+    background-color:#f1f1f1
+    }
+.dropbtn{
+    padding:8px;
+    background-color:#f9f9f9;
+    border:none;
+    cursor:pointer
+    }
+.hrhead{
+    background-color:black;
+    text-align:center;
+    color:gold;
+    margin-top:80px;
+    padding:10px 0
+    }
+.hrhead h3{
+    background-color:black;
+    margin:0;
+    padding:10px
+    }
+.wood99{
+    text-align:center;
+    padding:10px 0;
+    background-color:white
+    }
+.wood99 img{
+    height:390px;
+    width:290px;
+    margin-top:10px;
+    background-color:white
+    }
+.wood99text{
+    text-align:center;
+    padding:10px;
+    background-color:white
+    }
+*{
+    background-color:#DD6BA7
+    }
+.search-bar{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+    margin-top:20px
+    }
+.search-input{
+    padding:5px;
+    background-color:black;
+    color:white;
+    width:70%;
+    border:none;
+    border-radius:5px;
+    box-shadow:0px 2px 5px rgba(0,0,0,0.2)
+    }
+.search-button{
+    padding:5px 10px;
+    background-color:Red;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer
+    }
+</style>
+</head>
+<body>
+  <script>
+  function search() {
+  var input, filter, contentman, title, i, txtValue;
+  input = document.getElementById('search-input');
+  filter = input.value.toUpperCase();
+  contentman = document.getElementsByClassName('contentman');
+  if (filter === "") {
+  for (i = 0; i < contentman.length; i++) {
+  contentman[i].style.display = '';
+  }
+  document.getElementById('not-found').style.display = 'none';
+  } else {
+  var found = false;
+  for (i = 0; i < contentman.length; i++) {
+  title = contentman[i].getElementsByClassName('title')[0];
+  txtValue = title.textContent || title.innerText;
+  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+  contentman[i].style.display = '';
+  found = true;
+  } else {
+  contentman[i].style.display = 'none';
+  }
+  }
+  if (!found) {
+  document.getElementById('not-found').style.display = 'block';
+  } else {
+  document.getElementById('not-found').style.display = 'none';
+  }
+  }
+  }
+  </script>
+<div class="header">
+  <div class="logo" style="background-color:black;text-align:center;font-size:50px;">
+    <img src="./Asserts/COVER-2-BG-1.png" alt="Logo">
+  </div>
+  <h2 style="background-color:black;">Manhwa List</h2>
+  <div class="dropdown">
+    <button class="dropbtn" style="background-color:red;width:50px;color:gold;">&#8801;</button>
+    <div class="dropdown-content">
+      <a style="color:gold;background-color:black;text-align:center;" href="./HR.html">✪✪✪✪✪(HR)</a>
+      <a style="color:yellow;background-color:black;text-align:center;" href="./R.html">✪✪✪✪(R)</a>
+      <a style="color:blue;background-color:black;text-align:center;" href="./G.html">✪✪✪(G)</a>
+      <a style="color:green;background-color:black;text-align:center;" href="./D.html">✪✪(D)</a>
+      <a style="color:red;background-color:black;text-align:center;" href="./T.html">✪(T)</a>
+    </div>
+  </div>
+</div>
+<div class="hrhead">
+  <h3>Highly Recommended(HR)</h3>
+</div>
+<div class="search-bar">
+  <input type="text" id="search-input" class="search-input" placeholder="Search..." oninput="search()">
+  <button class="search-button">Search</button>
+  </div>
+<div class="contentman" id="content">
+  <div class="title">
+    <h4 style="text-align:center;background-color:white;">+99 Reinforced Wooden Stick</h4>
+  </div>
+  <hr>
+  <div class="wood99">
+    <img src="./Asserts/+99 Reinforced Wooden Stick.jpg">
+  </div>
+  <div class="wood99text">
+    <hr>
+  <p>Rating: ✪✪✪✪✪</p>
+  <hr>
+  <p>Author: Hong-Sil (홍실)</p>
+  <hr>
+  <p>Artist: Jiperi (지페리)</p>
+  <hr>
+  <p>Genre: Action, Drama, Fantasy</p>
+  <hr>
+  <p>Tags: OP MC, VR Game World, Dumbass MC</p>
+  <hr>
+  <p>Summary: <br>Welcome to “Chrono Life,” a virtual reality game where only the strongest survive. Ji-u logs in to “Chrono Life,” only to be ignored and ridiculed by the other players for his lack of experience, crappy items, and being an overall noob. But when he upgrades his wooden stick to the max reinforcement level of +99, Ji-u realizes he has the power to split continents and slay armies of thousands in just one swing. “It’s time to teach the rest of you a lesson, you f*ckers.”</p>
+  <hr>
+  <p>Alternative Names: <br>
+    • 99강화나무몽둥이<br>
+    • 99ganghwanamumongdungi<br>
+    • 99 Reinforced Wood Stick<br>
+    • +99 Wooden Stick<br>
+    • 99强化木棍<br>
+    • 99強化木棒<br>
+    • +99 ท่อนไม้พร้อมบวก</p>
+    </div>
+  </div>
+  <div id="not-found" style="display:none;text-align:center;background-color:red;color:white;">Not Found</div>
+  <div class="contentman" id="content">
+  <div class="title">
+  <h4 style="text-align:center;background-color:white;">Hi Reinforced Wooden Stick</h4>
+  </div>
+  <hr>
+  <div class="wood99">
+  <img src="./Asserts/+99 Reinforced Wooden Stick.jpg">
+  </div>
+  <div class="wood99text">
+  <hr>
+  <p>Rating: ✪✪✪✪✪</p>
+  <hr>
+  <p>Author: Hong-Sil (홍실)</p>
+  <hr>
+  <p>Artist: Jiperi (지페리)</p>
+  <hr>
+  <p>Genre: Action, Drama, Fantasy</p>
+  <hr>
+  <p>Tags: OP MC, VR Game World, Dumbass MC</p>
+  <hr>
+  <p>Summary: <br>Welcome to “Chrono Life,” a virtual reality game where only the strongest survive. Ji-u logs in to “Chrono Life,” only to be ignored and ridiculed by the other players for his lack of experience, crappy items, and being an overall noob. But when he upgrades his wooden stick to the max reinforcement level of +99, Ji-u realizes he has the power to split continents and slay armies of thousands in just one swing. “It’s time to teach the rest of you a lesson, you f*ckers.”</p>
+  <hr>
+  <p>Alternative Names: <br>
+  • 99강화나무몽둥이<br>
+  • 99ganghwanamumongdungi<br>
+  • 99 Reinforced Wood Stick<br>
+  • +99 Wooden Stick<br>
+  • 99强化木棍<br>
+  • 99強化木棒<br>
+  • +99 ท่อนไม้พร้อมบวก</p>
+  </div>
+  </div>
+  </body>
+  </html>
